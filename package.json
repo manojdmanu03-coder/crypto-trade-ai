@@ -1,14 +1,33 @@
 {
-  "name": "crypto-trade-ai",
+  "name": "trading-api-server",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "install:all": "npm install --prefix api-server && npm install --prefix trading-dashboard",
-    "dev": "concurrently -n API,WEB -c blue,magenta \"npm run dev --prefix api-server\" \"npm run dev --prefix trading-dashboard\"",
-    "build": "npm run build --prefix trading-dashboard && npm run build --prefix api-server",
-    "start": "npm run start --prefix api-server"
+    "dev": "tsx watch src/index.ts",
+    "build": "node ./build.mjs",
+    "start": "node --enable-source-maps ./dist/index.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "express": "^5.1.0",
+    "pino": "^9.6.0",
+    "pino-http": "^10.4.0",
+    "ws": "^8.18.0",
+    "zod": "^3.24.1"
   },
   "devDependencies": {
-    "concurrently": "^9.1.2"
+    "@types/cookie-parser": "^1.4.8",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.5",
+    "@types/ws": "^8.5.13",
+    "esbuild": "^0.24.2",
+    "esbuild-plugin-pino": "^2.2.2",
+    "pino-pretty": "^13.0.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
   }
 }
