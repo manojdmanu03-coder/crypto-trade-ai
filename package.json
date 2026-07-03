@@ -1,0 +1,14 @@
+{
+  "name": "crypto-trade-ai",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install --prefix api-server && npm install --prefix trading-dashboard",
+    "dev": "concurrently -n API,WEB -c blue,magenta \"npm run dev --prefix api-server\" \"npm run dev --prefix trading-dashboard\"",
+    "build": "npm run build --prefix trading-dashboard && npm run build --prefix api-server",
+    "start": "npm run start --prefix api-server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
